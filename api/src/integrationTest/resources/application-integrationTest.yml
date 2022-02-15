@@ -1,0 +1,17 @@
+elasticsearch:
+  schema: http
+  index: incident_report_test
+  host: localhost:9200
+  username:
+  password:
+
+aws:
+  s3:
+    region: us-east-1
+    bucketName: bucketName
+    accessKey: accessKey
+    secretKey: secretKey
+    objectUrl: https://${aws.s3.bucketName}.s3.amazonaws.com
+  retry:
+    maxAttempts: 5
+    backoffDelay: 100

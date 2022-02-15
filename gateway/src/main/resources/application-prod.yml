@@ -1,0 +1,15 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: incident
+          uri: http://api-app
+          predicates:
+            - Path=/v1/incidents/**
+          filters:
+            - GatewayGlobalFilter

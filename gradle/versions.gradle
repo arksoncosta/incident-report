@@ -1,0 +1,7 @@
+ext {
+    lombokVersion = '1.18.22'
+    springBootVersion = '2.6.3'
+    mapstructVersion = '1.4.2.Final'
+    awsSdkS3Version = '1.12.153'
+    jaxbVersion = '2.3.1'
+}

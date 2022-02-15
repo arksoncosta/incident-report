@@ -1,0 +1,34 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+}
+
+jar {
+    enabled = false
+}
+
+dependencies {
+    implementation project(':core-elastic-search')
+    implementation project(':core')
+    implementation project(':core-s3')
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.testcontainers:testcontainers:1.16.3'
+    testImplementation 'org.testcontainers:elasticsearch:1.16.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.16.3'
+    integrationTestImplementation 'org.testcontainers:testcontainers:1.16.3'
+    integrationTestImplementation 'org.testcontainers:elasticsearch:1.16.3'
+    integrationTestImplementation 'org.testcontainers:junit-jupiter:1.16.3'
+
+    integrationTestImplementation sourceSets.main.output
+    integrationTestImplementation sourceSets.test.output
+
+    integrationTestImplementation configurations.implementation
+    integrationTestImplementation configurations.testImplementation
+
+    integrationTestRuntimeClasspath configurations.runtimeClasspath
+    integrationTestRuntimeClasspath configurations.testRuntimeClasspath
+
+}
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11

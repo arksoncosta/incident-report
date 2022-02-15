@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-app
+spec:
+  selector:
+    matchLabels:
+      app: api-app
+  template:
+    metadata:
+      labels:
+        app: api-app
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: api-app
+            - secretRef:
+                name: incident-report-secret
+          name: api
+          image: arksoncosta/api:REPLACEME_TAG
+          ports:
+            - containerPort: 8080
+              name: api-port
+              protocol: TCP
+

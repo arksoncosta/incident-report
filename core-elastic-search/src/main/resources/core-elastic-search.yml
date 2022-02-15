@@ -1,0 +1,14 @@
+elasticsearch:
+  index: incident_report
+  host: ${ELASTIC_SEARCH_HOST}
+  schema: https
+  url: ${elasticsearch.schema}://${elasticsearch.host}/${elasticsearch.index}/_bulk
+  username: ${ELASTIC_SEARCH_USERNAME}
+  password: ${ELASTIC_SEARCH_PASSWORD}
+  search:
+    url: ${elasticsearch.schema}://${elasticsearch.host}/${elasticsearch.index}/_search
+  update:
+    url: ${elasticsearch.schema}://${elasticsearch.host}/${elasticsearch.index}/_doc/
+  retryable:
+    maxAttempts: 5
+    backoffDelay: 100

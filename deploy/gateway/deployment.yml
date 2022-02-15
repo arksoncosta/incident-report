@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-app
+spec:
+  selector:
+    matchLabels:
+      app: gateway-app
+  template:
+    metadata:
+      labels:
+        app: gateway-app
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: gateway-app
+          name: gateway
+          image: arksoncosta/gateway:REPLACEME_TAG
+          ports:
+          - containerPort: 8080
+            name: gateway-port
+            protocol: TCP

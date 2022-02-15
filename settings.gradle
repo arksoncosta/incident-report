@@ -1,0 +1,7 @@
+rootProject.name = 'incident-report'
+include 'core'
+include 'api'
+include 'core-elastic-search'
+include 'core-s3'
+include 'gateway'
+

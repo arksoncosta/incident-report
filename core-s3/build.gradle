@@ -1,0 +1,18 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    implementation project(':core')
+    implementation 'org.springframework:spring-context'
+    implementation "com.amazonaws:aws-java-sdk-s3:${awsSdkS3Version}"
+    implementation "javax.xml.bind:jaxb-api:${jaxbVersion}"
+}
